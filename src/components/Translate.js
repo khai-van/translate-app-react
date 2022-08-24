@@ -7,7 +7,7 @@ import {
 } from 'semantic-ui-react';
 import axios from 'axios';
 
-let HOST="https://1d5f-34-73-26-182.ngrok.io"
+let HOST="https://81dd-34-82-59-229.ngrok.io"
 
 export default function Translate() {
     const [inputText, setInputText] = useState('');
@@ -24,10 +24,10 @@ export default function Translate() {
         setResultText3("")
         setResultText4("")
 
-        const translate_at = axios.get(HOST + `/translate/baseAT` + inputText)
-        const translate_nat = axios.get(HOST + `/translate/baseNAT` + inputText)
-        const translate_levT = axios.get(HOST + `/translate/baseLevT` + inputText)
-        const translate_levT_2 = axios.get(HOST + `/translate/upgradeLevT` + inputText)
+        const translate_at = axios.get(HOST + `/translate/baseAT/` + inputText)
+        const translate_nat = axios.get(HOST + `/translate/baseNAT/` + inputText)
+        const translate_levT = axios.get(HOST + `/translate/baseLevT/` + inputText)
+        const translate_levT_2 = axios.get(HOST + `/translate/upgradeLevT/` + inputText)
 
         axios.all([translate_at, translate_nat, translate_levT, translate_levT_2]).then(axios.spread((...responses) => {
             const response_translate_at = responses[0]
