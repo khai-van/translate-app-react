@@ -7,7 +7,7 @@ import {
 } from 'semantic-ui-react';
 import axios from 'axios';
 
-let ENDPOINT="https://1d5f-34-73-26-182.ngrok.io"
+let HOST="https://1d5f-34-73-26-182.ngrok.io"
 
 export default function Translate() {
     const [inputText, setInputText] = useState('');
@@ -24,10 +24,10 @@ export default function Translate() {
         setResultText3("")
         setResultText4("")
 
-        const translate_at = axios.get(ENDPOINT + `/translate/` + inputText)
-        const translate_nat = axios.get(ENDPOINT + `/translate/` + inputText)
-        const translate_levT = axios.get(ENDPOINT + `/translate/` + inputText)
-        const translate_levT_2 = axios.get(ENDPOINT + `/translate/` + inputText)
+        const translate_at = axios.get(HOST + `/translate/baseAT` + inputText)
+        const translate_nat = axios.get(HOST + `/translate/baseNAT` + inputText)
+        const translate_levT = axios.get(HOST + `/translate/baseLevT` + inputText)
+        const translate_levT_2 = axios.get(HOST + `/translate/upgradeLevT` + inputText)
 
         axios.all([translate_at, translate_nat, translate_levT, translate_levT_2]).then(axios.spread((...responses) => {
             const response_translate_at = responses[0]
@@ -35,10 +35,10 @@ export default function Translate() {
             const respones_translate_levT = responses[2]
             const respones_translate_levT_2 = responses[3]
             
-            setResultText1(response_translate_at.data.Hello)
-            setResultText2(response_translate_nat.data.Hello)
-            setResultText3(respones_translate_levT.data.Hello)
-            setResultText4(respones_translate_levT_2.data.Hello)
+            setResultText1(response_translate_at.data.response)
+            setResultText2(response_translate_nat.data.response)
+            setResultText3(respones_translate_levT.data.response)
+            setResultText4(respones_translate_levT_2.data.response)
             setSubmmitting(false)
           })).catch(errors => {
             // react on errors.
