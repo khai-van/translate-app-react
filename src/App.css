@@ -20,3 +20,8 @@
   margin-bottom: 15px;
   outline: none !important;
 }
+
+label {
+  text-align:left;
+  padding-left: 10px;
+}

@@ -7,7 +7,7 @@ import {
 } from 'semantic-ui-react';
 import axios from 'axios';
 
-let HOST="https://81dd-34-82-59-229.ngrok.io"
+let HOST="https://4fd0-35-229-31-183.ngrok.io"
 
 export default function Translate() {
     const [inputText, setInputText] = useState('');
@@ -67,25 +67,25 @@ export default function Translate() {
                             control={TextArea}
                             placeholder='Kết quả mô hình base Transformer'
                             value={resultText1}
-                            
+                            label='AT' 
                         />
                         <Form.Field
                             control={TextArea}
                             placeholder='Kết quả mô hình base Non-autoregressive Transformer'
                             value={resultText2}
-                            
+                            label='NAT'
                         />
                         <Form.Field
                             control={TextArea}
                             placeholder='Kết quả mô hình Levenshtein Transformer'
                             value={resultText3}
-                            
+                            label='LevT'
                         />
                         <Form.Field
                             control={TextArea}
                             placeholder='Kết quả mô hinh Levenshtein Transformer có reranking'
                             value={resultText4}
-                            
+                            label='Upgraded LevT'
                         />
                         
 
